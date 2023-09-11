@@ -21,3 +21,7 @@ print(country)
 label_encoder = preprocessing.LabelEncoder()
 country[:, 0] = label_encoder.fit_transform(missing_values.iloc[:, 0])
 print(country)
+
+one_hot_encoder = preprocessing.OneHotEncoder()
+country = one_hot_encoder.fit_transform(country).toarray()
+print(country)
