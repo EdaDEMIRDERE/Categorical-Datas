@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.impute import SimpleImputer
+from sklearn import preprocessing
 
 missing_values = pd.read_csv("missing_values.csv")
 print(missing_values)
@@ -13,3 +14,10 @@ print(age)
 imputer = imputer.fit(age[:, 1:4])
 age[:, 1:4] = imputer.transform(age[:, 1:4])
 print(age)
+
+country = missing_values.iloc[:, 0:1].values
+print(country)
+
+label_encoder = preprocessing.LabelEncoder()
+country[:, 0] = label_encoder.fit_transform(missing_values.iloc[:, 0])
+print(country)
