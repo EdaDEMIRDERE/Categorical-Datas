@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.impute import SimpleImputer
 from sklearn import preprocessing
+from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 
 missing_values = pd.read_csv("missing_values.csv")
@@ -46,5 +47,13 @@ print(s_1)
 s_2 = pd.concat([s_1, result_3], axis=1)
 print(s_2)
 
+# feature scaling
 x_train, x_test, y_train, y_test = train_test_split(s_1, result_3, test_size=0.33, random_state=0)
 print("x train:", y_test)
+
+standart_scaler = StandardScaler()
+
+X_train = standart_scaler.fit_transform(x_train)
+X_test = standart_scaler.fit_transform(x_test)
+
+
