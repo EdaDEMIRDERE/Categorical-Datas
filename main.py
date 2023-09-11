@@ -25,3 +25,22 @@ print(country)
 one_hot_encoder = preprocessing.OneHotEncoder()
 country = one_hot_encoder.fit_transform(country).toarray()
 print(country)
+
+print(list(range(22)))
+result_1 = pd.DataFrame(data=country, index=range(22), columns=["fr", "tr", "us"])
+print(result_1)
+
+result_2 = pd.DataFrame(data=age, index=range(22), columns=["boy", "kilo", "yas"])
+print(result_2)
+
+gender = missing_values.iloc[:, -1].values
+print(gender)
+
+result_3 = pd.DataFrame(data=gender, index=range(22), columns=["gender"])
+print(result_3)
+
+s_1 = pd.concat([result_1, result_2], axis=1)
+print(s_1)
+
+s_2 = pd.concat([s_1, result_3], axis=1)
+print(s_2)
